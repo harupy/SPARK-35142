@@ -1,7 +1,9 @@
 from pyspark.ml.classification import LogisticRegression, OneVsRest
 from pyspark.ml.linalg import Vectors
 from pyspark.sql import SparkSession
-from sklearn.datasets import load_irisspark = SparkSession.builder.getOrCreate()
+from sklearn.datasets import load_iris
+
+spark = SparkSession.builder.getOrCreate()
 
 X, y = load_iris(return_X_y=True)
 df = spark.createDataFrame(
