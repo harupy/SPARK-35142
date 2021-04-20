@@ -22,5 +22,7 @@ jobs:
           python-version: "3.6"
       - run: |
           pip install scikit-learn pyspark==${{ matrix.pyspark-version }}
-      - run: |
+      - env:
+          SPARK_LOCAL_IP: 127.0.0.1
+        run: |
           python one_vs_rest.py
