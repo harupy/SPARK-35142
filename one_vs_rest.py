@@ -12,7 +12,8 @@ df = spark.createDataFrame(
 train, test = df.randomSplit([0.8, 0.2])
 
 lor = LogisticRegression(maxIter=5)
-ovr = OneVsRest(classifier=lor)ovrModel = ovr.fit(train)
+ovr = OneVsRest(classifier=lor)
+ovrModel = ovr.fit(train)
 pred = ovrModel.transform(test)
 
 pred.printSchema()
