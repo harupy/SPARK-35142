@@ -7,7 +7,9 @@ X, y = load_iris(return_X_y=True)
 df = spark.createDataFrame(
  [(Vectors.dense(features), int(label)) for features, label in zip(X, y)], ["features", "label"]
 )
-train, test = df.randomSplit([0.8, 0.2])lor = LogisticRegression(maxIter=5)
+train, test = df.randomSplit([0.8, 0.2])
+
+lor = LogisticRegression(maxIter=5)
 ovr = OneVsRest(classifier=lor)ovrModel = ovr.fit(train)
 pred = ovrModel.transform(test)
 
