@@ -23,3 +23,5 @@ pred.printSchema()
 #  |-- label: long (nullable = true)
 #  |-- rawPrediction: string (nullable = true)  # <- should not be string
 #  |-- prediction: double (nullable = true)
+
+pred.show()
